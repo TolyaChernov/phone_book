@@ -1,2 +1,3 @@
 .venv/
 phone.py
+__pycache__
