@@ -50,18 +50,20 @@ class PhoneBookApp(App):
         search_input.text = ''
         search_results.clear_widgets()
 
-        layout = BoxLayout(orientation='vertical', spacing=20)
-        layout.padding = [10, 20, 10, 20]
+        # layout = BoxLayout(orientation='vertical', spacing=5)
+        layout = GridLayout(cols=1)
+        # layout.padding = [10, 20, 10, 20]
         layout.size_hint_y = None
-        layout.halign = 'left'
+        # layout.halign = 'left'
+        # layout.valign = 'top'
         layout.height = len(results) * 160  # Задайте высоту в соответствии с количеством результатов
 
         with layout.canvas.before:
             Color(1, 1, 1, 1)  # Устанавливаем цвет фона
-            Rectangle(pos=(0, 0), size=(1600, layout.height))  # Рисуем прямоугольник фона
+            Rectangle(pos=(0, 0), size=(1920, layout.height))  # Рисуем прямоугольник фона
 
         for result in results:
-            result_label = Label(text=result, font_size=16, color=(0, 0, 0, 1), halign='center')
+            result_label = Label(text=result, font_size=16, color=(0, 0, 0, 1), halign='left', )
             layout.add_widget(result_label)
         search_results.add_widget(layout)
 
