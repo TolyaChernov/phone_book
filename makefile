@@ -1,7 +1,13 @@
 start: #start on linux mint
 	python3 -m venv .venv
 	.venv/bin/python3 -m pip install --upgrade pip
-	.venv/bin/pip install -r requirements.txt
+	# .venv/bin/pip install -r requirements.txt
+	sleep 3
+	.venv/bin/pip install kivy
+	sleep 3
+	.venv/bin/pip install kivymd
+	sleep 3
+	.venv/bin/pip install sqlalchemy
 	sleep 3
 	.venv/bin/python3 ./main.py
 

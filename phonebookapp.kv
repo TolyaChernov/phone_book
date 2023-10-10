@@ -1,0 +1,110 @@
+#:kivy 2.0.0
+
+<MainWindow>:
+    BoxLayout:
+        orientation: 'vertical'
+        
+        MDTopAppBar:
+            title: "MDTopAppBar"
+
+        MDBottomNavigation:
+
+            MDBottomNavigationItem:
+                name: "screen 2"
+                text: "Все"
+                icon: "account-group"
+
+                MDBoxLayout:
+                    padding: "20px"
+                    orientation: 'vertical'
+
+                    MDBoxLayout:
+                        # orientation: 'vertical'
+                        padding: "20px"
+                        halign: "center"
+                        MDDropDownItem:
+                            id: drop_1
+                            # pos_hint: {'center_x': .2, 'center_y': 0.9}
+                            text: 'Управление'
+                            # on_release: print("Press item")
+                        
+                        MDDropDownItem:
+                            id: drop_2
+                            # pos_hint: {'center_x': .5, 'center_y': 0.9}
+                            text: 'Отдел'
+                        #     on_release: print("Press item")
+
+                        MDDropDownItem:
+                            id: drop_3
+                            # pos_hint: {'center_x': .7, 'center_y': 0.9}
+                            text: 'Должность'
+                        #     on_release: print("Press item")
+
+                    MDScrollView:
+                        size_hint: 1, 0.8
+
+                        MDList:
+                            id: filter_results
+
+            MDBottomNavigationItem:
+                name: 'screen search'
+                text: 'Поиск'
+                icon: 'magnify'
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: '20px'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        halign: 'center'
+                        MDTextField:
+                            id: search_field
+                            hint_text: "Введите имя для поиска"
+                            # helper_text: "Вести один из параметров"
+                            # helper_text_mode: "on_focus"
+                        
+                        MDTextField:
+                            id: search_field
+                            hint_text: "Введите номер телефона для поиска"
+                            # helper_text: "Вести один из параметров"
+                            # helper_text_mode: "on_focus"
+                            
+
+                        MDRectangleFlatIconButton:
+                            icon: "magnify"
+                            text: "Найти"
+                            on_release: 
+                                app.search(root.ids.search_field.text)
+                        
+
+                    # MDBoxLayout:
+                        MDScrollView:
+                            size_hint: 1, 0.8
+
+                            MDList:
+                                id: search_results
+
+
+
+            MDBottomNavigationItem:
+                name: "add"
+                text: "Добавить"
+                icon: "account-plus"
+
+                MDBoxLayout:
+                    padding: "20px"
+                    orientation: 'vertical'
+                    MDTextField:
+                        hint_text: 'Введите имя для добавления'
+
+                    MDTextField:
+                        hint_text: 'Введите номер телефона для добавления'
+                        multiline: True
+                    Widget:
+                    MDFloatingActionButton:
+                        icon: "plus"
+                        pos_hint: {"right": 0.95, "up": 0.5}
+
+                        
+                   
+
